@@ -20,10 +20,11 @@ namespace dotNetWPF_03_0535_6349
     /// </summary>
     public partial class PrinterUserControl : UserControl
     {
+        static int printerId=1;
         public PrinterUserControl()
         {
-            //fkwhhkwhkfjhew
             InitializeComponent();
+            printerNameLabel.Content = "Printer " + printerId++;
         }
     }
 }
