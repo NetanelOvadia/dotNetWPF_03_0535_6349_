@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+/// <summary>
+/// /
+/// </summary>
 namespace dotNetWPF_03_0535_6349
 {
     /// <summary>
