@@ -20,9 +20,48 @@ namespace dotNetWPF_03_0535_6349
     /// </summary>
     public partial class MainWindow : Window
     {
+        PrinterUserControl CourrentPrinter;
+        Queue<PrinterUserControl> queue;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            queue = new Queue<PrinterUserControl>();
+
+            foreach (Control item in prinderGrid.Children)
+            {
+                if (item is PrinterUserControl)
+                {
+                    PrinterUserControl printer = item as PrinterUserControl;
+                    queue.Enqueue(printer);
+                }
+            }
+            CourrentPrinter = queue.Dequeue();
+        }
+
+        //זה יפעל כאשר לוחצים על הכפתור
+        private void printButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+
+    public delegate void EventHandler(object sender, EventArgs args);
+
+    public class PrinerEventArgs : EventArgs
+    {
+        public readonly bool isCrucial;
+        public readonly DateTime dateTime;
+        public readonly string errMsg;
+        public readonly string printerName;
+
+        public PrinerEventArgs(bool IsCrucial, string ErrMsg, string PrinterName)
+        {
+            isCrucial = IsCrucial;
+            dateTime = DateTime.Today;
+            errMsg = ErrMsg;
+            printerName = PrinterName;
         }
     }
 }

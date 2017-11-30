@@ -57,7 +57,7 @@ namespace dotNetWPF_03_0535_6349
         public void printing()
         {
             //tells me how much pages and ink i will use now in this printing.
-            double currentPrintIntRequest   = rand.Next((int)MIN_ADD_INK, (int)MAX_PRINT_INK);
+            double currentPrintIntRequest   = rand.NextDouble() * (MAX_PRINT_INK - MIN_ADD_INK) + MIN_ADD_INK;
             int currentPrintPageRequest = rand.Next(MIN_ADD_PAGES, MAX_PRINT_PAGES);
 
 
@@ -100,7 +100,7 @@ namespace dotNetWPF_03_0535_6349
 
         public void addRandomInk() //this func adds random amount of ink.
         {
-            inkCount += rand.Next((int)MIN_ADD_INK, (int)MAX_PRINT_INK);
+            inkCount += rand.NextDouble() * (MAX_PRINT_INK - MIN_ADD_INK) + MIN_ADD_INK;
         }
         
         public void addRadomPage() //this func adds random amount of pages.
